@@ -5,17 +5,17 @@
 
     <StackLayout>
         <!--<Label Text="ID" FontSize="Title" Padding="0,0,0,0" TextColor="White"/>-->
-        <Entry Placeholder="ID" Keyboard="Numeric" x:Name="txtid" Margin="5,0,5,0" TextColor="White" Text="{Binding id}" />
-        <Entry Placeholder="Nombre" Keyboard="Text" x:Name="txtnombre" Margin="5,0,5,0" TextColor="White" Text="{Binding nombre}"/>
-        <Entry Placeholder="Apellido" Keyboard="Text" x:Name="txtapellido" Margin="5,0,5,0" TextColor="White" Text="{Binding apellido}"/>
-        <Entry Placeholder="Edad" Keyboard="Numeric" x:Name="txtedad" Margin="5,0,5,0" TextColor="White" Text="{Binding edad}"/>
-        <Entry Placeholder="Correo electronico" Keyboard="Email" x:Name="txtemail" Margin="5,0,5,0" TextColor="White" Text="{Binding correo}"/>
-        <Entry Placeholder="Direccion" Keyboard="Text" x:Name="txtdireccion" Margin="5,0,5,0" TextColor="White" Text="{Binding direccion}"/>
+        <Entry Placeholder="ID" Keyboard="Numeric" x:Name="txtid" Margin="5,0,5,0"  Text="{Binding id} " IsEnabled="False" TextChanged="txtid_TextChanged"/>
+        <Entry Placeholder="Nombre" Keyboard="Text" x:Name="txtnombre" Margin="5,0,5,0"  Text="{Binding nombre}"/>
+        <Entry Placeholder="Apellido" Keyboard="Text" x:Name="txtapellido" Margin="5,0,5,0"  Text="{Binding apellido}"/>
+        <Entry Placeholder="Edad" Keyboard="Numeric" x:Name="txtedad" Margin="5,0,5,0"  Text="{Binding edad}"/>
+        <Entry Placeholder="Correo electronico" Keyboard="Email" x:Name="txtemail" Margin="5,0,5,0"  Text="{Binding correo}"/>
+        <Entry Placeholder="Direccion" Keyboard="Text" x:Name="txtdireccion" Margin="5,0,5,0"  Text="{Binding direccion}"/>
 
 
-        <Button Text="Inserta" x:Name="btnsalvar" Margin="10,0,10,0" Clicked="btnsalvar_Clicked"/>
-        <Button Text="Eliminar" x:Name="btneliminar" Margin="10,0,10,0" Clicked="btneliminar_Clicked"/>
-        <Button Text="Actualizar" x:Name="btnactualizar" Margin="10,0,10,0" Clicked="btnactualizar_Clicked"/>
+        <Button Text="Insertar" x:Name="btnsalvar" Margin="10,0,10,0" Clicked="btnsalvar_Clicked" />
+        <Button Text="Eliminar" x:Name="btneliminar" Margin="10,0,10,0" Clicked="btneliminar_Clicked" IsEnabled="False"/>
+        <Button Text="Actualizar" x:Name="btnactualizar" Margin="10,0,10,0" Clicked="btnactualizar_Clicked" IsEnabled="False"/>
     </StackLayout>
 
 </ContentPage>

@@ -22,6 +22,7 @@ namespace tarea3
         {
             await Navigation.PushAsync(new MainPage()); 
 
+
         }
 
         private async void liestapersonas_ItemTapped(object sender, ItemTappedEventArgs e)

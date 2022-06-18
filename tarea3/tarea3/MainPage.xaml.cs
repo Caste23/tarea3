@@ -15,35 +15,47 @@ namespace tarea3
         public MainPage()
         {
             InitializeComponent();
+            
         }
+
+        
 
      
         private async void btnsalvar_Clicked(object sender, EventArgs e)
         {
-            var personass = new personas
-          
+            try
             {
-                id = 0,
-                nombre = txtnombre.Text,
-                apellido = txtapellido.Text,
-                edad = Int32.Parse(txtedad.Text),//convertimos nuestro tipo int a String
-                correo = txtemail.Text,
-                direccion = txtdireccion.Text
+                var personass = new personas
 
-                
+                {
+                    id = 0,
+                    nombre = txtnombre.Text,
+                    apellido = txtapellido.Text,
+                    edad = Int32.Parse(txtedad.Text),//convertimos nuestro tipo int a String
+                    correo = txtemail.Text,
+                    direccion = txtdireccion.Text
 
-            };
-           
-            //si no esta la informacion la guardamos
-           var result = await App.dbpersona.personaSave(personass);
-            if(result > 0)
+
+
+                };
+
+                //si no esta la informacion la guardamos
+                var result = await App.dbpersona.personaSave(personass);
+                if (result > 0)
+                {
+                    await DisplayAlert("Aviso", "Persona Guardada", "Ok");
+                    await Navigation.PopAsync();
+                }
+                else
+                {
+                    await DisplayAlert("Aviso", "Ha ocurrido un error", "Ok");
+                }
+            } catch (Exception ex)
             {
-                await DisplayAlert("Persona Guardada", "Aviso", "Ok");
+                await DisplayAlert("Aviso", "Ingrese los datos solicitados", "Ok");
             }
-            else
-            {
-                await DisplayAlert("Ha ocurrido un error", "Aviso", "Ok");
-            }
+
+            
            
         }
 
@@ -65,6 +77,8 @@ namespace tarea3
             };
             var result = await App.dbpersona.eliminarpersonas(personass);
             await DisplayAlert("Aviso", "Persona eliminada","Ok");
+
+            await Navigation.PopAsync();
         }
 
         private async void btnactualizar_Clicked(object sender, EventArgs e)
@@ -84,7 +98,15 @@ namespace tarea3
             };
             var result = await App.dbpersona.personaSave(personass);
             await DisplayAlert("Aviso", "Persona Actualizada", "Ok");
+            await Navigation.PopAsync();
 
+        }
+
+        private void txtid_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            btnsalvar.IsEnabled = false;
+            btnactualizar.IsEnabled = true;
+            btneliminar.IsEnabled = true;
         }
     }
 }
